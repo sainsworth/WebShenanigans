@@ -8,32 +8,6 @@ open System.Web.Mvc
 open System.Web.Routing
 open System.Web.Optimization
 
-type BundleConfig() =
-    static member RegisterBundles (bundles:BundleCollection) =
-        bundles.Add(ScriptBundle("~/bundles/jquery").Include([|"~/Scripts/jquery-{version}.js"|]))
-
-        // Use the development version of Modernizr to develop with and learn from. Then, when you're
-        // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-        bundles.Add(ScriptBundle("~/bundles/modernizr").Include([|"~/Scripts/modernizr-*"|]))
-
-        bundles.Add(ScriptBundle("~/bundles/bootstrap").Include(
-                        "~/Scripts/bootstrap.js",
-                        "~/Scripts/respond.js"))
-
-        bundles.Add(StyleBundle("~/Content/css").Include(
-                        "~/Content/bootstrap.css",
-                        "~/Content/site.css"))
-
-/// Route for ASP.NET MVC applications
-type Route = { 
-    controller : string
-    action : string
-    id : UrlParameter }
-
-type HttpRoute = {
-    controller : string
-    id : RouteParameter }
-
 type Global() =
     inherit System.Web.HttpApplication() 
 
