@@ -1,4 +1,11 @@
-﻿<div>
+﻿@section scripts {
+
+@Scripts.Render(Url.Content("~/Scripts/OntologyTypeahead/Main.js?v=1"))
+
+}
+
+<div>
     <h1>Ontology Type-ahead Test Page</h1>
 
 </div>
+<button id="btnPing">Click Me</button>

@@ -18,8 +18,10 @@ type BundleConfig() =
 
         bundles.Add(ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Scripts/bootstrap.js",
-                        "~/Scripts/respond.js"))
-
+                        "~/Scripts/respond.js",
+                        "~/Scripts/sweetalert.min.js"))
+                        
         bundles.Add(StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",
-                        "~/Content/site.css"))
+                        "~/Content/site.css",
+                        "~/Content/sweetalert.css"))
