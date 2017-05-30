@@ -12,15 +12,17 @@ type BundleConfig() =
     static member RegisterBundles (bundles:BundleCollection) =
         bundles.Add(ScriptBundle("~/bundles/jquery").Include([|"~/Scripts/jquery-{version}.js"|]))
 
-        // Use the development version of Modernizr to develop with and learn from. Then, when you're
-        // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
         bundles.Add(ScriptBundle("~/bundles/modernizr").Include([|"~/Scripts/modernizr-*"|]))
 
         bundles.Add(ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/respond.js",
-                        "~/Scripts/sweetalert.min.js"))
-                        
+                        "~/Scripts/sweetalert.min.js",
+                        "~/Scripts/moment.js"))
+         
+        //Bootstrap wins with it's map to the less files: so not all these stylings are applied...
+        bundles.Add(StyleBundle("~/Content/jquery-ui-css").Include([|"~/Scripts/jquery-ui-*"|]))
+
         bundles.Add(StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",
                         "~/Content/site.css",

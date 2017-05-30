@@ -40,3 +40,54 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+/* Status DIVs */
+
+div.status-not-ok {
+    color: #DD0000;
+    background: #FFDDDD;
+    border: solid;
+    border-color: #DD0000;
+    border-radius: 5px 5px 5px 5px;
+    padding: 6px 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+div.status-not-known {
+    color: #DD9900;
+    background: #FFEEBB;
+    border: solid;
+    border-color: #DD9900;
+    border-radius: 5px 5px 5px 5px;
+    padding: 6px 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+div.status-ok {
+    color: #00AA00;
+    background: #DDFFDD;
+    border: solid;
+    border-color: #00AA00;
+    border-radius: 5px 5px 5px 5px;
+    padding: 6px 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+div.group-heading {
+    padding: 6px 12px;
+    font-size: 1.5em;
+    font-weight: 500;
+    white-space: nowrap;
+}
+@media (min-width: 992px) {
+    div.group-heading {
+        text-align: right;
+    }
+}
+
+div.status-text {
+    padding: 6px 12px;
+}

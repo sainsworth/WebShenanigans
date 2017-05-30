@@ -4,8 +4,45 @@
 
 }
 
+@*https://stackoverflow.com/questions/6835835/jquery-simple-polling-example*@
+
 <div>
     <h1>Ontology Type-ahead Test Page</h1>
 
 </div>
-<button id="btnPing">Click Me</button>
+<div id="ontologyHealthGroup" class="row">
+    <div class="col-md-2 group-heading">
+        API Health
+    </div>
+    <div id="ontologyHealthIndicator-not-ok" class="col-md-2 status-not-ok" hidden="hidden">
+        <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Not OK
+    </div>
+    <div id="ontologyHealthIndicator-ok" class="col-md-2 status-ok" hidden="hidden">
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> OK
+    </div>
+    <div id="ontologyHealthIndicator-unknown" class="col-md-2 status-not-known">
+        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Unknown
+    </div>
+    <div class="col-md-4 status-text">
+        <div id="ontologyHealthText">
+            Ontology API has not been tested
+        </div>
+    </div>
+    <div class="col-md-1">
+        <button id="btnPing" class="btn btn-secondary">Ping Ontology API</button>
+    </div>
+</div>
+
+
+@* 
+    The Plan
+    
+    Poll the web service
+        every minute when last call was success
+        every 5 s when not
+    Update the UI to show last health statatus
+
+    Manual ping also update - with popup
+
+    only allow typeahead when ping OK
+*@
