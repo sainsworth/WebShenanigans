@@ -23,7 +23,7 @@
     <div id="ontologyHealthIndicator-unknown" class="col-md-2 status-not-known">
         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Unknown
     </div>
-    <div class="col-md-4 status-text">
+    <div class="col-md-5 status-text">
         <div id="ontologyHealthText">
             Ontology API has not been tested
         </div>
@@ -32,17 +32,3 @@
         <button id="btnPing" class="btn btn-secondary">Ping Ontology API</button>
     </div>
 </div>
-
-
-@* 
-    The Plan
-    
-    Poll the web service
-        every minute when last call was success
-        every 5 s when not
-    Update the UI to show last health statatus
-
-    Manual ping also update - with popup
-
-    only allow typeahead when ping OK
-*@

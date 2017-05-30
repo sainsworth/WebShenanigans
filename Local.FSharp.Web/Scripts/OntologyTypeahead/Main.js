@@ -19,6 +19,9 @@
     $("#ontologyHealthIndicator-" + event).show();
 };
 
+var shorttimeout = 2000;
+var longtimeout = 30000;
+
 function poll() {
     var start = Date.now();
     $.ajax({
@@ -27,14 +30,16 @@ function poll() {
         success: function (data) {
             var now = Date.now();
             updateOntologyStatus("ok", start, now);
+            setTimeout(function () { poll() }, longtimeout);
         },
         error: function (xhr, textStatus, errorThrown) {
             var now = Date.now();
             updateOntologyStatus("not-ok", start, now, errorThrown);
+            setTimeout(function () { poll() }, shorttimeout);
         },
         dataType: "json",
-        complete: setTimeout(function () { poll() }, 10000),
-        timeout: 2000
+        //complete: setTimeout(function () { poll() }, longtimeout),
+        timeout: longtimeout
     })
 };
 
@@ -46,28 +51,22 @@ $('#btnPing').click(function () {
         success: function (data) {
             var now = Date.now();
             updateOntologyStatus("ok", start, now);
+            setTimeout(function () { poll() }, longtimeout);
             swal({
                 title: "Ping Success",
                 text: "ping responded : " + (now - start) + "ms",
                 type: "success"
-            })
-
+            });
         },
         error: function (xhr, textStatus, errorThrown) {
             var now = Date.now();
+            setTimeout(function () { poll() }, shorttimeout);
             updateOntologyStatus("not-ok", start, now, errorThrown);
             swal({
                 title: "Ping Error",
                 text: errorThrown,
                 type: "error"
             })
-        //},
-        //complete: function (xhr, textStatus) {
-        //    swal({
-        //        title: "Ping Response",
-        //        text: textStatus,
-        //        type: "warning"
-        //    })
         }
     });
 });
