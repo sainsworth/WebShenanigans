@@ -51,7 +51,6 @@ $('#btnPing').click(function () {
         success: function (data) {
             var now = Date.now();
             updateOntologyStatus("ok", start, now);
-            setTimeout(function () { poll() }, longtimeout);
             swal({
                 title: "Ping Success",
                 text: "ping responded : " + (now - start) + "ms",
@@ -60,7 +59,6 @@ $('#btnPing').click(function () {
         },
         error: function (xhr, textStatus, errorThrown) {
             var now = Date.now();
-            setTimeout(function () { poll() }, shorttimeout);
             updateOntologyStatus("not-ok", start, now, errorThrown);
             swal({
                 title: "Ping Error",
@@ -69,6 +67,35 @@ $('#btnPing').click(function () {
             })
         }
     });
+});
+
+$("#ontologyTypeahead_a_towns").autocomplete(
+{
+    search: function () {},
+    source: function (request, response)
+    {
+        $.ajax(
+        {
+            url: $APIRoot_ontologyTypeahead + "/lookup/a_towns",
+            dataType: "json",
+            data:
+            {
+                query: request.term,
+            },
+            success: function (data)
+            {
+                var resp = [];
+                if (data != undefined && data.Response != undefined && data.Response.Data != undefined && data.Response.Data.length > 0) {
+                    for (var i = 0; i < data.Response.Data.length; i++)
+                    {
+                        resp.push(data.Response.Data[i].Label)
+                    }
+                }
+                response(resp);
+            }
+        });
+    }//,
+    //minLength: 2
 });
 
 $().ready(function () {
