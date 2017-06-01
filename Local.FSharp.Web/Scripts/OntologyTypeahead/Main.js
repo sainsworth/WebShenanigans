@@ -127,6 +127,37 @@ $('#boxes-a-towns').typeahead({
     }
 });
 
+function IsNotAlreadyAdded(group, id) {
+    var g = $(document.getElementById(id));
+    if (g.length == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+$('#boxes-a-towns').on('typeahead:selected', function (evt, item) {
+    if (IsNotAlreadyAdded("boxes-a-towns", item.Id) == true) {
+        $.ajax(
+        {
+            url: "partial/bluebox",
+            data:
+            {
+                id: item.Id,
+                label: item.Label
+            },
+            success: function (data) {
+                $("#boxes-collection").append(data);
+            }
+        });
+    }
+    $("#boxes-a-towns").val('');
+    // do what you want with the item here
+})
+
 $().ready(function () {
     poll();
 });
