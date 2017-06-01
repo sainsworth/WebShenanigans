@@ -105,6 +105,7 @@
   </ProjectExtensions>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Types.fs" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -119,8 +120,8 @@
     <Content Include="Content\jquery-ui.structure.min.css" />
     <Content Include="Content\jquery-ui.theme.css" />
     <Content Include="Content\jquery-ui.theme.min.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="Content\sweetalert.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -128,13 +129,14 @@
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
-    <Content Include="Scripts\OntologyTypeahead\Main.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\typeahead.bundle.js" />
+    <Content Include="Scripts\OntologyTypeahead\Main.js" />
     <None Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.svg" />
@@ -147,6 +149,7 @@
     <Content Include="Views\OntologyTypeahead\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_BlueBox.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Global.asax" />

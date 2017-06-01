@@ -69,7 +69,7 @@ $('#btnPing').click(function () {
     });
 });
 
-$("#ontologyTypeahead_a_towns").autocomplete(
+$("#jq_a_towns").autocomplete(
 {
     search: function () {},
     source: function (request, response)
@@ -96,6 +96,35 @@ $("#ontologyTypeahead_a_towns").autocomplete(
         });
     }//,
     //minLength: 2
+});
+
+$('#boxes-a-towns').typeahead({
+    highlight: true,
+    minLength: 3,
+    limit: 10
+},
+{
+    name: "a-towns",
+    display: "Label",
+    source: function (query, response) {
+        $.ajax(
+        {
+            url: $APIRoot_ontologyTypeahead + "/lookup/a_towns",
+            dataType: "json",
+            data:
+            {
+                query: query,
+            },
+            success: function (data) {
+                if (data != undefined && data.Response != undefined) {
+                    response(data.Response.Data);
+                } else {
+                    response([]);
+                }
+                
+            }
+        });
+    }
 });
 
 $().ready(function () {

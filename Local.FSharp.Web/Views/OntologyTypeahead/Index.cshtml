@@ -10,9 +10,11 @@
     <h1>Ontology Type-ahead Test Page</h1>
 
 </div>
+<hr />
+<h3>API Health</h3>
 <div id="ontologyHealthGroup" class="row">
-    <div class="col-md-2 group-heading">
-        API Health
+    <div class="col-md-1">
+        &nbsp;
     </div>
     <div id="ontologyHealthIndicator-not-ok" class="col-md-2 status-not-ok" hidden="hidden">
         <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Not OK
@@ -23,28 +25,64 @@
     <div id="ontologyHealthIndicator-unknown" class="col-md-2 status-not-known">
         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Unknown
     </div>
-    <div class="col-md-5 status-text">
+    <div class="col-md-2">
+        <button id="btnPing" class="btn btn-secondary">Ping Ontology API</button>
+    </div>
+    <div class="col-md-7 status-text">
         <div id="ontologyHealthText">
             Ontology API has not been tested
         </div>
     </div>
-    <div class="col-md-1">
-        <button id="btnPing" class="btn btn-secondary">Ping Ontology API</button>
-    </div>
 </div>
 <hr />
 <h3>Jquery-UI</h3>
-<div id="a_townsGroup" class="row">
+<div id="jq_group" class="row">
     <div class="col-md-1">
         &nbsp;
     </div>
     <div class="col-md-2">
-        <label for="ontologyTypeahead_a_towns">Towns starting with A</label>
+        <label for="jq_a_towns">Towns starting with A</label>
     </div>
     <div class="col-md-2">
-        <input id="ontologyTypeahead_a_towns" title="towns starting with a..." />
+        <input id="jq_a_towns" title="towns starting with a..." />
     </div>
     <div class="col-md-7">
         Using the API to get the data but only rendering the values - not doing anything useful with the IDs
     </div>
+</div>
+<hr />
+<h3>Something something something BOXES!!!</h3>
+<div id="boxes-add" class="row">
+    <div class="col-md-1">
+        &nbsp;
+    </div>
+    <div class="col-md-2">
+        <label for="boxes-a-towns">Towns starting with A</label>
+    </div>
+    <div class="col-md-2">
+        <input id="boxes-a-towns" title="A..." />
+    </div>
+    <div class="col-md-7">
+        Will use the API to add items to the display below...
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div id="boxes-collection" class="box-container">
+            @{
+                Local.FSharp.Web.BoxItem x1 = new Local.FSharp.Web.BoxItem("11111", "this is a thing");
+                Local.FSharp.Web.BoxItem x2 = new Local.FSharp.Web.BoxItem("22222", "this is another thing");
+                Local.FSharp.Web.BoxItem x3 = new Local.FSharp.Web.BoxItem("33333", "three now - getting busy");
+                Local.FSharp.Web.BoxItem x4 = new Local.FSharp.Web.BoxItem("44444", "four? really? time to exercise some self control");
+                var xl = new List<Local.FSharp.Web.BoxItem>() { x1,x2,x3,x4};
+                foreach (var x in xl)
+                {
+                    Html.RenderPartial("_BlueBox", x);
+                }
+            }
+        </div>
+    </div>
+</div>
+<div id="the-basics">
+    <input class="typeahead" type="text" placeholder="States of USA">
 </div>

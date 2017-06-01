@@ -91,3 +91,92 @@ div.group-heading {
 div.status-text {
     padding: 6px 12px;
 }
+
+div.box-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+div.box-instance {
+    color: #0000AA;
+    background: #DDDDFF;
+    border: solid;
+    padding: 6px 6px;
+    margin: 12px 6px 6px 6px;
+    border-color: #0000AA;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+}
+
+#close {
+    float:right;
+    display:inline-block;
+    vertical-align: top;
+    padding: 0px 0px 0px 6px;
+    cursor:pointer;
+}
+
+#close:hover {
+    color:#AA0000;
+}
+
+/* Typeahead */
+
+.typeahead {
+  background-color: #fff;
+}
+
+.typeahead:focus {
+  border: 2px solid #0000AA;
+}
+
+/*.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}*/
+
+.tt-hint {
+  color: #999
+}
+
+.tt-dropdown-menu {
+  /*width: 422px;*/
+  margin: 6px 0;
+  padding: 4px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  /*-webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);*/
+}
+
+.tt-suggestion {
+  padding: 3px 6px;
+  /*font-size: 18px;*/
+  line-height: 1.2em;
+}
+.tt-suggestion:hover {
+  cursor: pointer;
+  color: #DDDDFF;
+  background-color: #0000AA;
+}
+
+.tt-suggestion.tt-cursor {
+  color: #DDDDFF;
+  background-color: #0000AA;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+/*
+.gist {
+  font-size: 1.2em;
+}

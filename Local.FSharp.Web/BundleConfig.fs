@@ -19,7 +19,8 @@ type BundleConfig() =
                         "~/Scripts/respond.js",
                         "~/Scripts/sweetalert.min.js",
                         "~/Scripts/moment.js",
-                        "~/Scripts/jquery-ui.js"))
+                        "~/Scripts/jquery-ui.js",
+                        "~/Scripts/typeahead.bundle.js"))
          
         bundles.Add(StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",
