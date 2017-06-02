@@ -69,17 +69,6 @@
 <div class="row">
     <div class="col-md-12">
         <div id="boxes-collection" class="box-container">
-            @{
-                Local.FSharp.Web.BoxItem x1 = new Local.FSharp.Web.BoxItem("11111", "this is a thing");
-                Local.FSharp.Web.BoxItem x2 = new Local.FSharp.Web.BoxItem("22222", "this is another thing");
-                Local.FSharp.Web.BoxItem x3 = new Local.FSharp.Web.BoxItem("33333", "three now - getting busy");
-                Local.FSharp.Web.BoxItem x4 = new Local.FSharp.Web.BoxItem("44444", "four? really? time to exercise some self control");
-                var xl = new List<Local.FSharp.Web.BoxItem>() { x1,x2,x3,x4};
-                foreach (var x in xl)
-                {
-                    Html.RenderPartial("_BlueBox", x);
-                }
-            }
         </div>
     </div>
 </div>

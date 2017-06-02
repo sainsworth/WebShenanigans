@@ -1,0 +1,16 @@
+{
+  "Request": {
+    "Route": "lookup/{accessor}/all",
+    "Details": {
+      "Accessor": "accessors"
+    }
+  },
+  "Response": {
+    "Data": [
+      {
+        "Id": "a_towns",
+        "Label": "Towns starting with A"
+      }
+    ]
+  }
+}

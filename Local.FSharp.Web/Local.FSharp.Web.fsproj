@@ -108,6 +108,9 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Types.fs" />
+    <Compile Include="Preamble.fs" />
+    <Compile Include="WebCalls.fs" />
+    <Content Include="Schemas\OntologiApiResponse.json" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -124,6 +127,7 @@
     <Content Include="Content\jquery-ui.theme.min.css" />
     <Content Include="Content\sweetalert.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\OntologyTypeahead\Main.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\sweetalert-dev.js" />
@@ -132,7 +136,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\typeahead.bundle.js" />
-    <Content Include="Scripts\OntologyTypeahead\Main.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
@@ -171,12 +174,24 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FSharp.Configuration">
+      <HintPath>..\packages\FSharp.Configuration.1.1.0\lib\net46\FSharp.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.Data">
+      <HintPath>..\packages\FSharp.Data.2.3.3\lib\net40\FSharp.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>$(SolutionDir)\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpYaml">
+      <HintPath>..\packages\FSharp.Configuration.1.1.0\lib\net46\SharpYaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
