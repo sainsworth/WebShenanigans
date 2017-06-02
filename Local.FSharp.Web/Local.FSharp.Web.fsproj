@@ -123,13 +123,10 @@
     <Content Include="Content\sweetalert.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\jquery-3.2.1.js" />
-    <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
-    <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -137,6 +134,9 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\typeahead.bundle.js" />
     <Content Include="Scripts\OntologyTypeahead\Main.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <None Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.svg" />
