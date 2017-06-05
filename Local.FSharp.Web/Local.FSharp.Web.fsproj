@@ -107,6 +107,8 @@
   </ProjectExtensions>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Domain.fs" />
+    <Compile Include="Railway.fs" />
     <Compile Include="Types.fs" />
     <Compile Include="Preamble.fs" />
     <Compile Include="WebCalls.fs" />
@@ -128,6 +130,7 @@
     <Content Include="Content\sweetalert.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\OntologyTypeahead\Main.js" />
+    <Content Include="Scripts\OntologyTypeahead\PollStatus.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\sweetalert-dev.js" />
@@ -155,6 +158,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\OntologyTypeahead\Index.cshtml" />
+    <Content Include="Views\OntologyTypeahead\Status.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_BlueBox.cshtml" />

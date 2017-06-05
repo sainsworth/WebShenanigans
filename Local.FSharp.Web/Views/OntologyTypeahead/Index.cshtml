@@ -1,4 +1,6 @@
-﻿@section scripts {
+﻿@*@model IEnumerable<Local.FSharp.Web.Ontology>*@
+
+@section scripts {
 
 @Scripts.Render(Url.Content("~/Scripts/OntologyTypeahead/Main.js?v=1"))
 
@@ -6,32 +8,13 @@
 
 @*https://stackoverflow.com/questions/6835835/jquery-simple-polling-example*@
 
-<div>
-    <h1>Ontology Type-ahead Test Page</h1>
-
-</div>
-<hr />
-<h3>API Health</h3>
-<div id="ontologyHealthGroup" class="row">
+<div class="row">
+    <div class="col-md-11">
+        <h1>Ontology Type-ahead Test Page</h1>
+    </div>
     <div class="col-md-1">
-        &nbsp;
-    </div>
-    <div id="ontologyHealthIndicator-not-ok" class="col-md-2 status-not-ok" hidden="hidden">
-        <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Not OK
-    </div>
-    <div id="ontologyHealthIndicator-ok" class="col-md-2 status-ok" hidden="hidden">
-        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> OK
-    </div>
-    <div id="ontologyHealthIndicator-unknown" class="col-md-2 status-not-known">
-        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Unknown
-    </div>
-    <div class="col-md-2">
-        <button id="btnPing" class="btn btn-secondary">Ping Ontology API</button>
-    </div>
-    <div class="col-md-7 status-text">
-        <div id="ontologyHealthText">
-            Ontology API has not been tested
-        </div>
+        <br />
+        <a class="btn btn-default" href="OntologyTypeahead/Status">API Status</a>
     </div>
 </div>
 <hr />
@@ -51,7 +34,7 @@
     </div>
 </div>
 <hr />
-<h3>Something something something BOXES!!!</h3>
+<h3>Typeahead.js</h3>
 <div id="boxes-add" class="row">
     <div class="col-md-1">
         &nbsp;
@@ -72,3 +55,16 @@
         </div>
     </div>
 </div>
+
+
+@*@foreach (var x in Model)
+{
+    <div class="row">
+        <div class="col-md-1">
+            @x.Accessor
+        </div>
+        <div class="col-md-1">
+            @x.Label
+        </div>
+    </div>
+}*@

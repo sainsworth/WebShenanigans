@@ -1,17 +1,30 @@
 ﻿module webshenanigans.WebCalls
 
+open webshenanigans.Domain
+open webshenanigans.Railway
 open Local.FSharp.Web
 open webshenanigans.Preamble
 open FSharp.Data
 
 let getSyncResponse uri =
     try
-        let r = Http.RequestString(uri)
-                |> ApiResponse.Parse
-        ()
+        Http.RequestString(uri)
+        |> Success
     with
-        | ex -> match ex with
-                | _ -> ()
+        | ex -> ex |> WebCallFailureException |> Failure
 
-//let getAccessors =
-//    sprintf "%s/accessors/all" Setting.ApiRootOntologyTypeahead |> 
+let getAccessors (x:System.Uri) =
+     x.ToString()
+     |> sprintf "%s/accessors/all"
+     |> getSyncResponse
+
+let parseResponse x =
+    try
+        x
+        |> ApiResponse.Parse
+        |> function x -> x.Response.Data |> Array.toList
+                                         |> List.map (function x -> new Ontology(x.Id, x.Label))
+        |> Success
+    with
+        | ex -> ex |> ParseWebResponseException |> Failure
+

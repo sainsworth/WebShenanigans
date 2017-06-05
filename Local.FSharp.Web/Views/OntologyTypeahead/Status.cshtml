@@ -1,0 +1,36 @@
+﻿@section scripts {
+
+    @Scripts.Render(Url.Content("~/Scripts/OntologyTypeahead/PollStatus.js?v=1"))
+
+}
+
+@*https://stackoverflow.com/questions/6835835/jquery-simple-polling-example*@
+
+<div>
+    <h1>Ontology Type-ahead Status Page</h1>
+
+</div>
+<hr />
+<h3>API Health</h3>
+<div id="ontologyHealthGroup" class="row">
+    <div class="col-md-1">
+        &nbsp;
+    </div>
+    <div id="ontologyHealthIndicator-not-ok" class="col-md-2 status-not-ok" hidden="hidden">
+        <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Not OK
+    </div>
+    <div id="ontologyHealthIndicator-ok" class="col-md-2 status-ok" hidden="hidden">
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> OK
+    </div>
+    <div id="ontologyHealthIndicator-unknown" class="col-md-2 status-not-known">
+        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Unknown
+    </div>
+    <div class="col-md-2">
+        <button id="btnPing" class="btn btn-secondary">Ping Ontology API</button>
+    </div>
+    <div class="col-md-7 status-text">
+        <div id="ontologyHealthText">
+            Ontology API has not been tested
+        </div>
+    </div>
+</div>
