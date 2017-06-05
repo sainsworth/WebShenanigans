@@ -140,7 +140,9 @@ function IsNotAlreadyAdded(group, id) {
 }
 
 $('#boxes-a-towns').on('typeahead:selected', function (evt, item) {
-    if (IsNotAlreadyAdded("boxes-a-towns", item.Id) == true) {
+    $(this).blur().val('');
+
+    if (IsNotAlreadyAdded("boxes-collection", item.Id) == true) {
         $.ajax(
         {
             url: "partial/bluebox",
@@ -154,9 +156,9 @@ $('#boxes-a-towns').on('typeahead:selected', function (evt, item) {
             }
         });
     }
-    $("#boxes-a-towns").val('');
-    // do what you want with the item here
-})
+});
+
+
 
 $().ready(function () {
     poll();
