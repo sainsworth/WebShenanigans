@@ -129,8 +129,8 @@
     <Content Include="Content\jquery-ui.theme.min.css" />
     <Content Include="Content\sweetalert.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\OntologyTypeahead\Main.js" />
-    <Content Include="Scripts\OntologyTypeahead\PollStatus.js" />
+    <Content Include="Scripts\Typeahead\Main.js" />
+    <Content Include="Scripts\Typeahead\PollStatus.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\sweetalert-dev.js" />
@@ -151,22 +151,25 @@
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.svg" />
     <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <Compile Include="Interfaces\ITypeaheadService.fs" />
     <Compile Include="Controllers\HomeController.fs" />
     <Compile Include="Controllers\ValuesController.fs" />
-    <Compile Include="Controllers\OntologyTypeaheadController.fs" />
+    <Compile Include="Controllers\TypeaheadController.fs" />
     <Compile Include="Controllers\PartialController.fs" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\OntologyTypeahead\Index.cshtml" />
-    <Content Include="Views\OntologyTypeahead\Status.cshtml" />
+    <Content Include="Views\Typeahead\Index.cshtml" />
+    <Content Include="Views\Typeahead\Status.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_BlueBox.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Compile Include="Services\OntologyTypeaheadService.fs" />
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Compile Include="BundleConfig.fs" />
     <Compile Include="RouteConfig.fs" />
+    <Compile Include="MvcInfrastructure.fs" />
     <Compile Include="Global.asax.fs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

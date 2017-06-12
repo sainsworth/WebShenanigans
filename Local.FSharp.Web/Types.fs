@@ -11,6 +11,15 @@ type BoxItem(id:string, label:string) =
   member this.Id = id
   member this.Label = label
  
-type Ontology(accessor:string, label:string) =
-  member this.Accessor = accessor
-  member this.Label = label
+//type Ontology(accessor:string, label:string) =
+//  member this.Accessor = accessor
+//  member this.Label = label
+type Ontology = {
+    Accessor: string
+    Label: string
+  }
+  with static member from x y = {
+      Accessor=x
+      Label=y
+    }
+  

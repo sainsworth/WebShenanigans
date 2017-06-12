@@ -23,7 +23,8 @@ let parseResponse x =
         x
         |> ApiResponse.Parse
         |> function x -> x.Response.Data |> Array.toList
-                                         |> List.map (function x -> new Ontology(x.Id, x.Label))
+                                         |> List.map (function x -> Ontology.from x.Id x.Label)
+
         |> Success
     with
         | ex -> ex |> ParseWebResponseException |> Failure

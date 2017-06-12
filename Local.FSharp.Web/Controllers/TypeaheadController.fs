@@ -11,11 +11,14 @@ open webshenanigans.Domain
 open webshenanigans.Preamble
 open webshenanigans.WebCalls
 open webshenanigans.Railway
+open webShenanigans.Interfaces
 
-type OntologyTypeaheadController() =
+type TypeaheadController(
+        _typeaheadService : ITypeaheadService
+    ) =
     inherit Controller()
-    member this.Error(e) =
-        this.View("Error")
+    member this.Error(e:WebShenanigansError) =
+        this.View("Error", e.ErrorString)
     member this.Status () =
         this.View()
     member this.Index() =
@@ -27,4 +30,7 @@ type OntologyTypeaheadController() =
 //        | Success s -> this.ViewData.Add("model", s)
 //                       this.View()
 //        | Failure f -> this.Error(f)
-        this.View()
+        match _typeaheadService.getTypeaheads () with
+        | Success s -> this.View(s)
+        | Failure f -> this.Error(f)
+//        this.View( ontologies)

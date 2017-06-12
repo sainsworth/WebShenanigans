@@ -42,4 +42,5 @@ type Global() =
         GlobalConfiguration.Configure(Action<_> Global.RegisterWebApi)
         Global.RegisterFilters(GlobalFilters.Filters)
         Global.RegisterRoutes(RouteTable.Routes)
+        ControllerBuilder.Current.SetControllerFactory(MvcInfrastructure.CompositionRoot())
         BundleConfig.RegisterBundles BundleTable.Bundles

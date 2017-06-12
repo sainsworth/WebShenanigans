@@ -1,8 +1,8 @@
-﻿@*@model IEnumerable<Local.FSharp.Web.Ontology>*@
+﻿@model IEnumerable<Local.FSharp.Web.Ontology>
 
 @section scripts {
 
-@Scripts.Render(Url.Content("~/Scripts/OntologyTypeahead/Main.js?v=1"))
+@Scripts.Render(Url.Content("~/Scripts/Typeahead/Main.js?v=1"))
 
 }
 
@@ -57,7 +57,7 @@
 </div>
 
 
-@*@foreach (var x in Model)
+@foreach (var x in Model)
 {
     <div class="row">
         <div class="col-md-1">
@@ -67,4 +67,4 @@
             @x.Label
         </div>
     </div>
-}*@
+}
