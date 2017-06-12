@@ -4,4 +4,28 @@
     <h2>An error occurred while processing your request.</h2>
 </div>
 
-@Model.ToString()
+<div class="row">
+    <div class="col-md-1">&nbsp;</div>
+    <div class="col-md-1"><b>Controller</b></div>
+    <div class="col-md-9">
+        @Model.ControllerName
+    </div>
+    <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="col-md-1">&nbsp;</div>
+    <div class="col-md-1"><b>Action</b></div>
+    <div class="col-md-9">
+        @Model.ActionName
+    </div>
+    <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="col-md-1">&nbsp;</div>
+    <div class="col-md-1"><b>Exception</b></div>
+    <div class="col-md-9">
+        @Model.Exception.Message
+    </div>
+</div>
+<br />
+<br />

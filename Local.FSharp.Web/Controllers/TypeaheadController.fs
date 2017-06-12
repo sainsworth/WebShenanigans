@@ -13,15 +13,18 @@ open webshenanigans.WebCalls
 open webshenanigans.Railway
 open webShenanigans.Interfaces
 
-type TypeaheadController(
-        _typeaheadService : ITypeaheadService
-    ) =
-    inherit Controller()
+type TypeaheadController(_typeaheadService : ITypeaheadService) =
+  inherit Controller()
     member this.Error(e:WebShenanigansError) =
-        this.View("Error", e.ErrorString)
+      let ex = new HandleErrorInfo(e.AsException, this.RouteData.Values.Item("controller").ToString(), this.RouteData.Values.Item("action").ToString())
+      this.View("Error", ex)
     member this.Status () =
-        this.View()
+      this.View()
     member this.Index() =
+      match _typeaheadService.getTypeaheads () with
+      | Success s -> this.View(s)
+      | Failure f -> this.Error(f)
+
 //        let p = getAccessors
 //                >=> parseResponse
 //        let d = Setting.ApiRootOntologyTypeahead
@@ -30,7 +33,4 @@ type TypeaheadController(
 //        | Success s -> this.ViewData.Add("model", s)
 //                       this.View()
 //        | Failure f -> this.Error(f)
-        match _typeaheadService.getTypeaheads () with
-        | Success s -> this.View(s)
-        | Failure f -> this.Error(f)
 //        this.View( ontologies)

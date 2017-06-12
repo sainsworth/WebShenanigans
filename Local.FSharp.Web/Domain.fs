@@ -7,6 +7,7 @@ let (|NonNull|_|) (a:Nullable<_>) =
   if a.HasValue then Some(a.Value) else None
 
 type WebShenanigansError =
+  | NotYetImplemented
   | WebCallFailureGeneric
   | WebCallFailureException of System.Exception 
   | WebCallFailure of string
@@ -23,6 +24,8 @@ type WebShenanigansError =
       | WebCallFailureException e -> getErrorString this e
       | ParseWebResponseException e -> getErrorString this e
       | _ -> this |> gerErrorName
+    member this.AsException =
+      new Exception(this.ErrorString)
 
 type Result<'TSuccess> = 
     | Success of 'TSuccess

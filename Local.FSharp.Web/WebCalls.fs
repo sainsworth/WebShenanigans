@@ -15,15 +15,15 @@ let getSyncResponse uri =
 
 let getAccessors (x:System.Uri) =
      x.ToString()
-     |> sprintf "%s/accessors/all"
+     |> sprintf "%slookup/accessors/all"
      |> getSyncResponse
 
 let parseResponse x =
     try
         x
         |> ApiResponse.Parse
-        |> function x -> x.Response.Data |> Array.toList
-                                         |> List.map (function x -> Ontology.from x.Id x.Label)
+        |> function x -> x.Response.Data |> Array.toSeq
+                                         |> Seq.map (function x -> Ontology.from x.Id x.Label)
 
         |> Success
     with

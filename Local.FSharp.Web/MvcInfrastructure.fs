@@ -17,9 +17,17 @@ module MvcInfrastructure =
   
   let (|TypeaheadController|_|) type' =
     if type' = typeof<TypeaheadController> then
-      let otas = new OntologyTypeAheadService()
-      let typeaheadController = new TypeaheadController(otas)
+//      let tas = new DummyTypeAheadService()
+      let tas = new OntologyTypeAheadService()
+      let typeaheadController = new TypeaheadController(tas)
       Some (typeaheadController :> IController)
+    else
+      None
+
+  let (|PartialController|_|) type' =
+    if type' = typeof<PartialController> then
+      let partialController = new PartialController()
+      Some (partialController :> IController)    
     else
       None
 
@@ -29,5 +37,6 @@ module MvcInfrastructure =
         let anonymousId = requestContext.HttpContext.Request.AnonymousID
         match controllerType with
         | HomeController homeController -> homeController
+        | PartialController partialController -> partialController
         | TypeaheadController typeaheadController -> typeaheadController  
         | _ -> raise <| ArgumentException((sprintf "Unknown controller type requested: %A" controllerType))
