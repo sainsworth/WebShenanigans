@@ -1,9 +1,9 @@
 ﻿module webShenanigans.Services
 
-open Local.FSharp.Web
+open webshenanigans.Types
 open webshenanigans.Domain
 open webshenanigans.Railway
-open webShenanigans.Interfaces
+open webShenanigans.ServiceInterfaces
 open webshenanigans.WebCalls
 
 type DummyTypeAheadService () = class end
@@ -23,3 +23,5 @@ type OntologyTypeAheadService () = class end
         |> p
         
 //        NotYetImplemented |> Failure
+
+//http://blog.tamizhvendan.in/blog/2014/12/10/web-application-development-in-fsharp-using-asp-dot-net-mvc/

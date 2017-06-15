@@ -1,8 +1,7 @@
-﻿module webShenanigans.Interfaces
+﻿module webShenanigans.ServiceInterfaces
 
-open Local.FSharp.Web
 open webshenanigans.Domain
-open webshenanigans.Railway
+open webshenanigans.Types
 
 type ITypeaheadService =
   abstract member getTypeaheads: unit -> Result<seq<Ontology>>

@@ -11,7 +11,7 @@ open webshenanigans.Domain
 open webshenanigans.Preamble
 open webshenanigans.WebCalls
 open webshenanigans.Railway
-open webShenanigans.Interfaces
+open webShenanigans.ServiceInterfaces
 
 type TypeaheadController(_typeaheadService : ITypeaheadService) =
   inherit Controller()

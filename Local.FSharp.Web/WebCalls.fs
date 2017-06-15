@@ -1,10 +1,9 @@
 ﻿module webshenanigans.WebCalls
 
-open webshenanigans.Domain
-open webshenanigans.Railway
-open Local.FSharp.Web
-open webshenanigans.Preamble
 open FSharp.Data
+
+open webshenanigans.Domain
+open webshenanigans.Types
 
 let getSyncResponse uri =
     try

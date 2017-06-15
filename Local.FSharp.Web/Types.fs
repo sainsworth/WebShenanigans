@@ -1,4 +1,4 @@
-﻿namespace Local.FSharp.Web
+﻿module webshenanigans.Types
 
 open FSharp.Configuration
 open FSharp.Data

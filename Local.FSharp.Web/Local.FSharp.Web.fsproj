@@ -151,7 +151,7 @@
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.svg" />
     <None Include="fonts\glyphicons-halflings-regular.eot" />
-    <Compile Include="Interfaces\ITypeaheadService.fs" />
+    <Compile Include="Interfaces\ServiceInterfaces.fs" />
     <Compile Include="Controllers\HomeController.fs" />
     <Compile Include="Controllers\ValuesController.fs" />
     <Compile Include="Controllers\TypeaheadController.fs" />
@@ -164,7 +164,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_BlueBox.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Compile Include="Services\OntologyTypeaheadService.fs" />
+    <Compile Include="Services\TypeaheadService.fs" />
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Compile Include="BundleConfig.fs" />

@@ -1,5 +1,5 @@
 ﻿module webshenanigans.Preamble
 
-open Local.FSharp.Web
+open webshenanigans.Types
 
 let accessorsUri = Setting.ApiRootOntologyTypeahead.ToString() |> sprintf "%s/accessors/all" 

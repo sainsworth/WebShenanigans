@@ -6,7 +6,7 @@ open System.Linq
 open System.Web
 open System.Web.Mvc
 open System.Web.Mvc.Ajax
-open Local.FSharp.Web
+open webshenanigans.Types
 
 type PartialController() =
     inherit Controller()
