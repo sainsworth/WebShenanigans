@@ -1,10 +1,10 @@
-﻿module webShenanigans.Services
+﻿module webShenanigans.TypeaheadService
 
-open webshenanigans.Types
 open webshenanigans.Domain
 open webshenanigans.Railway
-open webShenanigans.ServiceInterfaces
+open webshenanigans.Types
 open webshenanigans.WebCalls
+open webShenanigans.ServiceInterfaces
 
 type DummyTypeAheadService () = class end
   with

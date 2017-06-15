@@ -1,10 +1,10 @@
-﻿namespace Local.FSharp.Web
+﻿module webshenanigans.MvcInfrastructure
 
 open System
 open webShenanigans
 open System.Web.Mvc
-open Local.FSharp.Web.Controllers
-open webShenanigans.Services
+open webshenanigans.Controllers
+open webShenanigans.TypeaheadService
 
 module MvcInfrastructure =
 

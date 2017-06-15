@@ -1,4 +1,4 @@
-﻿namespace Local.FSharp.Web
+﻿module webshenanigans.BundleConfig
 
 open System
 open System.Net.Http

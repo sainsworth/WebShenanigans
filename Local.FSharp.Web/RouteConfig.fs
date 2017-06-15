@@ -1,4 +1,4 @@
-﻿namespace Local.FSharp.Web
+﻿namespace webshenanigans.RouteConfig
 
 open System
 open System.Net.Http

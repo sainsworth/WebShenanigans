@@ -1,4 +1,4 @@
-namespace Local.FSharp.Web
+namespace webshenanigans
 
 open System
 open System.Net.Http
@@ -7,6 +7,10 @@ open System.Web.Http
 open System.Web.Mvc
 open System.Web.Routing
 open System.Web.Optimization
+
+open webshenanigans.BundleConfig
+open webshenanigans.RouteConfig
+open webshenanigans.MvcInfrastructure
 
 type Global() =
     inherit System.Web.HttpApplication() 

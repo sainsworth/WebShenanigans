@@ -1,1 +1,1 @@
-<%@ Application Inherits="Local.FSharp.Web.Global" %>
+<%@ Application Inherits="webshenanigans.Global" %>

@@ -1,16 +1,13 @@
-﻿namespace Local.FSharp.Web.Controllers
+﻿namespace webshenanigans.Controllers
 
-open System
-open System.Collections.Generic
-open System.Linq
-open System.Web
+//open System
+//open System.Collections.Generic
+//open System.Linq
+//open System.Web
 open System.Web.Mvc
-open System.Web.Mvc.Ajax
-open Local.FSharp.Web
+//open System.Web.Mvc.Ajax
+//open Local.FSharp.Web
 open webshenanigans.Domain
-open webshenanigans.Preamble
-open webshenanigans.WebCalls
-open webshenanigans.Railway
 open webShenanigans.ServiceInterfaces
 
 type TypeaheadController(_typeaheadService : ITypeaheadService) =

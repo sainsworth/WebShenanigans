@@ -1,4 +1,4 @@
-namespace Local.FSharp.Web.Controllers
+namespace webshenanigans.Controllers
 
 open System
 open System.Collections.Generic
