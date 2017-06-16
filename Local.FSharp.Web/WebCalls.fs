@@ -18,22 +18,25 @@ let getSyncResponse uri =
     with
         | ex -> ex |> WebCallFailureException |> Failure
 
-let getValues (a:string) (q:string) =
-  queryUri a q
-  |> getSyncResponse
-
-let parseResponse x =
+let parseResponse f x =
     try
         x
         |> ApiResponse.Parse
         |> function x -> x.Response.Data |> Array.toSeq
-                                         |> Seq.map (function x -> Ontology.from x.Id x.Label)
+                                         |> Seq.map (function x -> f x.Id x.Label)
 
         |> Success
     with
       | ex -> ex |> ParseWebResponseException |> Failure
 
+let webcall f =
+  getSyncResponse
+  >=> parseResponse f
+
 let getAccessors =
-  let f = getSyncResponse
-          >=> parseResponse
-  accessorsUri |> f
+  accessorsUri
+  |> webcall Ontology.from
+
+let getValues (a:string) (q:string) =
+  queryUri a q
+  |> webcall OntologyItem.from

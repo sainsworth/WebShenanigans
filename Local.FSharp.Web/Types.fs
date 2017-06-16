@@ -9,13 +9,6 @@ type Setting = AppSettings<"Web.config">
 
 type ApiResponse = JsonProvider<"Schemas/OntologiApiResponse.json">
 
-type BoxItem(id:string, label:string) =
-  member this.Id = id
-  member this.Label = label
- 
-//type Ontology(accessor:string, label:string) =
-//  member this.Accessor = accessor
-//  member this.Label = label
 type Ontology =
   {
     Accessor: string
@@ -26,6 +19,16 @@ type Ontology =
       Label=y
     }
  
+type OntologyItem =
+  {
+    Id: string
+    Label: string
+  }
+  static member from x y = {
+      Id = x
+      Label = y
+    }
+
 type DataResponse<'T> =
   {
     Status: string

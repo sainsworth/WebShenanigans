@@ -10,4 +10,6 @@ open webshenanigans.Types
 
 type PartialController() =
     inherit Controller()
-    member this.BlueBox (id:string, label:string) = this.PartialView("_BlueBox", new BoxItem(id, label))
+    member this.BlueBox (id:string, label:string) = 
+      let oi = OntologyItem.from id label
+      this.PartialView("_BlueBox", oi)

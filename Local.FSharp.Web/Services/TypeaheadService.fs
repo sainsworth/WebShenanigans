@@ -6,6 +6,11 @@ open webshenanigans.Types
 open webshenanigans.WebCalls
 open webShenanigans.ServiceInterfaces
 
+let internalToExternalresponse (x:Result<seq<'a>>) =
+  match x with
+  | Success s -> DataResponse<'a>.Ok s
+  | Failure f -> DataResponse<'a>.Failure f
+
 type DummyTypeAheadService () = class end
   with
     interface ITypeaheadService with
@@ -16,9 +21,9 @@ type DummyTypeAheadService () = class end
         let data = [ Ontology.from "dummyaccessor" "This is a dummy typeahead source" ]
         data |> List.toSeq |> DataResponse<seq<Ontology>>.Ok
       member x.getTypeahead (accessor, query) =
-        let data = [ Ontology.from "dummyaccessor" "This is a dummy typeahead response"
-                     Ontology.from accessor query]
-        data |> List.toSeq |> DataResponse<seq<Ontology>>.Ok
+        let data = [ OntologyItem.from "dummyaccessor" "This is a dummy typeahead response"
+                     OntologyItem.from accessor query]
+        data |> List.toSeq |> DataResponse<seq<OntologyItem>>.Ok
 
 type OntologyTypeAheadService () = class end
   with
@@ -30,13 +35,11 @@ type OntologyTypeAheadService () = class end
 //        |> p
       member x.getTypeaheads() =
         getAccessors
-        |> function x -> match x with
-                         | Success s -> DataResponse<seq<Ontology>>.Ok s
-                         | Failure f -> DataResponse<seq<Ontology>>.Failure f
+        |> internalToExternalresponse
       member x.getTypeahead (accessor, query) =
-        let data = [ Ontology.from "dummyaccessor" "This is a dummy typeahead response"
-                     Ontology.from accessor query]
-        data |> List.toSeq |> DataResponse<seq<Ontology>>.Ok
+        getValues accessor query
+        |> internalToExternalresponse
+
         
 //        NotYetImplemented |> Failure
 
