@@ -110,7 +110,6 @@
     <Compile Include="Domain.fs" />
     <Compile Include="Railway.fs" />
     <Compile Include="Types.fs" />
-    <Compile Include="Preamble.fs" />
     <Compile Include="WebCalls.fs" />
     <Content Include="Schemas\OntologiApiResponse.json" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -153,7 +152,7 @@
     <None Include="fonts\glyphicons-halflings-regular.eot" />
     <Compile Include="Interfaces\ServiceInterfaces.fs" />
     <Compile Include="Controllers\HomeController.fs" />
-    <Compile Include="Controllers\ValuesController.fs" />
+    <Compile Include="Controllers\TypeaheadValuesController.fs" />
     <Compile Include="Controllers\TypeaheadController.fs" />
     <Compile Include="Controllers\PartialController.fs" />
     <Content Include="Views\Web.config" />
@@ -170,6 +169,7 @@
     <Compile Include="BundleConfig.fs" />
     <Compile Include="RouteConfig.fs" />
     <Compile Include="MvcInfrastructure.fs" />
+    <Compile Include="ApiInfrastructure.fs" />
     <Compile Include="Global.asax.fs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

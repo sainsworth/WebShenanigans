@@ -3,7 +3,13 @@
 open FSharp.Data
 
 open webshenanigans.Domain
+open webshenanigans.Railway
 open webshenanigans.Types
+
+let accessorsUri = Setting.ApiRootOntologyTypeahead.ToString() |> sprintf "%slookup/accessors/all"
+
+let queryUri a q = Setting.ApiRootOntologyTypeahead.ToString()
+                   |> fun x -> sprintf "%slookup/%s/?query=%s" x a q 
 
 let getSyncResponse uri =
     try
@@ -12,10 +18,9 @@ let getSyncResponse uri =
     with
         | ex -> ex |> WebCallFailureException |> Failure
 
-let getAccessors (x:System.Uri) =
-     x.ToString()
-     |> sprintf "%slookup/accessors/all"
-     |> getSyncResponse
+let getValues (a:string) (q:string) =
+  queryUri a q
+  |> getSyncResponse
 
 let parseResponse x =
     try
@@ -26,5 +31,9 @@ let parseResponse x =
 
         |> Success
     with
-        | ex -> ex |> ParseWebResponseException |> Failure
+      | ex -> ex |> ParseWebResponseException |> Failure
 
+let getAccessors =
+  let f = getSyncResponse
+          >=> parseResponse
+  accessorsUri |> f

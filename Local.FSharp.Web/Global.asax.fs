@@ -11,6 +11,7 @@ open System.Web.Optimization
 open webshenanigans.BundleConfig
 open webshenanigans.RouteConfig
 open webshenanigans.MvcInfrastructure
+open System.Web.Http.Dispatcher
 
 type Global() =
     inherit System.Web.HttpApplication() 
@@ -29,6 +30,7 @@ type Global() =
         config.Formatters.JsonFormatter.SerializerSettings.ContractResolver <- Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver()
 
         // Additional Web API settings
+        config.Services.Replace(typeof<IHttpControllerActivator>, ApiInfrastructure.CompositionRoot())
 
     static member RegisterFilters(filters: GlobalFilterCollection) =
         filters.Add(new HandleErrorAttribute())

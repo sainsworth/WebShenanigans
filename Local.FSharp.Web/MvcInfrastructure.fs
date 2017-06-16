@@ -6,8 +6,6 @@ open System.Web.Mvc
 open webshenanigans.Controllers
 open webShenanigans.TypeaheadService
 
-module MvcInfrastructure =
-
   let (|HomeController|_|) type' =
     if type' = typeof<HomeController> then
       let homeController = new HomeController()
