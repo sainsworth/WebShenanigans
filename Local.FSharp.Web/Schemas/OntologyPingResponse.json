@@ -1,0 +1,9 @@
+﻿{
+    "Request": {
+        "Route": "admin/ping"
+    },
+    "Response": {
+        "Message": "I'm here!!",
+        "Status": "OK"
+    }
+}

@@ -14,13 +14,18 @@ open webShenanigans.ServiceInterfaces
 type TypeaheadValuesController(_typeaheadService : ITypeaheadService) =
     inherit ApiController()
 
+    [<Route"ping">]
+    member x.GetPing() : IHttpActionResult =
+      let data = _typeaheadService.ping ()
+      x.Ok(data) :> _
+
     [<Route("alltypeaheads")>]
-    member x.Get() : IHttpActionResult =
+    member x.GetAll() : IHttpActionResult =
       let data = _typeaheadService.getTypeaheads ()
       x.Ok(data) :> _
 
     [<Route("{accessor}/{query}")>]
-    member x.Get(accessor,query) : IHttpActionResult =
+    member x.GetQuery(accessor,query) : IHttpActionResult =
       let data = _typeaheadService.getTypeahead (accessor, query)
       x.Ok(data) :> _
 

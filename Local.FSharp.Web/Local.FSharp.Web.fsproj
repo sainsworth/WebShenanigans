@@ -111,7 +111,8 @@
     <Compile Include="Railway.fs" />
     <Compile Include="Types.fs" />
     <Compile Include="WebCalls.fs" />
-    <Content Include="Schemas\OntologiApiResponse.json" />
+    <Content Include="Schemas\OntologyApiResponse.json" />
+    <Content Include="Schemas\OntologyPingResponse.json" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css" />

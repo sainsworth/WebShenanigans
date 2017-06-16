@@ -7,7 +7,8 @@ open Domain
 
 type Setting = AppSettings<"Web.config">
 
-type ApiResponse = JsonProvider<"Schemas/OntologiApiResponse.json">
+type ApiResponse = JsonProvider<"Schemas/OntologyApiResponse.json">
+type ApiPingResponse = JsonProvider<"Schemas/OntologyPingResponse.json">
 
 type Ontology =
   {
@@ -27,6 +28,21 @@ type OntologyItem =
   static member from x y = {
       Id = x
       Label = y
+    }
+
+type PingResponse =
+  {
+    Status: string
+    Exception: Exception option
+  }
+  static member Ok = {
+      Status = "OK"
+      Exception = None
+    }
+  static member Failure (x:WebShenanigansError) = 
+    {
+      Status = "Failure"
+      Exception = Some x.AsException
     }
 
 type DataResponse<'T> =

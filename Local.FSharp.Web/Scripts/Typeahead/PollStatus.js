@@ -23,18 +23,25 @@ var longtimeout = 30000;
 
 function poll() {
     var start = Date.now();
+    function errorResponse(textStatus, errorThrown) {
+        var now = Date.now();
+        updateOntologyStatus("not-ok", start, now, errorThrown);
+        setTimeout(function () { poll() }, shorttimeout);
+    }
     $.ajax({
-        url: $APIRoot_ontologyTypeahead + '/admin/ping',
+        url: "/values/typeahead/ping",
         type: "GET",
         success: function (data) {
-            var now = Date.now();
-            updateOntologyStatus("ok", start, now);
-            setTimeout(function () { poll() }, longtimeout);
+            if (data.status === "OK") {
+                var now = Date.now();
+                updateOntologyStatus("ok", start, now);
+                setTimeout(function () { poll() }, longtimeout);
+            } else {
+                errorResponse(data.status, data.exception);
+            }
         },
         error: function (xhr, textStatus, errorThrown) {
-            var now = Date.now();
-            updateOntologyStatus("not-ok", start, now, errorThrown);
-            setTimeout(function () { poll() }, shorttimeout);
+            errorResponse(textStatus, errorThrown);
         },
         dataType: "json",
         //complete: setTimeout(function () { poll() }, longtimeout),
@@ -44,26 +51,35 @@ function poll() {
 
 $('#btnPing').click(function () {
     var start = Date.now();
+
+    function errorPopup(xhr, textStatus, errorThrown) {
+        var now = Date.now();
+        updateOntologyStatus("not-ok", start, now, errorThrown);
+        swal({
+            title: "Ping Error",
+            text: errorThrown,
+            type: "error"
+        });
+    }
+
     $.ajax({
-        url: $APIRoot_ontologyTypeahead + '/admin/ping',
-        dataType: 'json',
+        url: "/values/typeahead/ping",
+        dataType: "json",
         success: function (data) {
-            var now = Date.now();
-            updateOntologyStatus("ok", start, now);
-            swal({
-                title: "Ping Success",
-                text: "ping responded : " + (now - start) + "ms",
-                type: "success"
-            });
+            if (data.status === "OK") {
+                var now = Date.now();
+                updateOntologyStatus("ok", start, now);
+                swal({
+                    title: "Ping Success",
+                    text: "ping responded : " + (now - start) + "ms",
+                    type: "success"
+                });
+            } else {
+                errorPopup(data.status, data.exception);
+            }
         },
         error: function (xhr, textStatus, errorThrown) {
-            var now = Date.now();
-            updateOntologyStatus("not-ok", start, now, errorThrown);
-            swal({
-                title: "Ping Error",
-                text: errorThrown,
-                type: "error"
-            })
+            errorPopup(textStatus, errorThrown);
         }
     });
 });

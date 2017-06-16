@@ -5,19 +5,14 @@
     {
         $.ajax(
         {
-            url: $APIRoot_ontologyTypeahead + "/lookup/a_towns",
+            url: "/values/typeahead/a_towns/" + request.term,
             dataType: "json",
-            data:
-            {
-                query: request.term,
-            },
             success: function (data)
             {
                 var resp = [];
-                if (data != undefined && data.Response != undefined && data.Response.Data != undefined && data.Response.Data.length > 0) {
-                    for (var i = 0; i < data.Response.Data.length; i++)
-                    {
-                        resp.push(data.Response.Data[i].Label)
+                if (data != undefined && data.data != undefined && data.data.length > 0) {
+                    for (var i = 0; i < data.data.length; i++) {
+                        resp.push(data.data[i].label);
                     }
                 }
                 response(resp);
@@ -34,19 +29,15 @@ $('#boxes-a-towns').typeahead({
 },
 {
     name: "a-towns",
-    display: "Label",
+    display: "label",
     source: function (query, response) {
         $.ajax(
         {
-            url: $APIRoot_ontologyTypeahead + "/lookup/a_towns",
+            url: "/values/typeahead/a_towns/" + query,
             dataType: "json",
-            data:
-            {
-                query: query,
-            },
             success: function (data) {
-                if (data != undefined && data.Response != undefined) {
-                    response(data.Response.Data);
+                if (data != undefined && data.data != undefined) {
+                    response(data.data);
                 } else {
                     response([]);
                 }
@@ -71,14 +62,14 @@ function IsNotAlreadyAdded(group, id) {
 $('#boxes-a-towns').on('typeahead:selected', function (evt, item) {
     $(this).blur().val('');
 
-    if (IsNotAlreadyAdded("boxes-collection", item.Id) == true) {
+    if (IsNotAlreadyAdded("boxes-collection", item.id) === true) {
         $.ajax(
         {
             url: "partial/bluebox",
             data:
             {
-                id: item.Id,
-                label: item.Label
+                id: item.id,
+                label: item.label
             },
             success: function (data) {
                 $("#boxes-collection").append(data);

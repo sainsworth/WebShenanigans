@@ -6,6 +6,8 @@ open webshenanigans.Domain
 open webshenanigans.Railway
 open webshenanigans.Types
 
+let pingUri = Setting.ApiRootOntologyTypeahead.ToString() |> sprintf "%sadmin/ping"
+
 let accessorsUri = Setting.ApiRootOntologyTypeahead.ToString() |> sprintf "%slookup/accessors/all"
 
 let queryUri a q = Setting.ApiRootOntologyTypeahead.ToString()
@@ -18,20 +20,39 @@ let getSyncResponse uri =
     with
         | ex -> ex |> WebCallFailureException |> Failure
 
-let parseResponse f x =
-    try
-        x
-        |> ApiResponse.Parse
-        |> function x -> x.Response.Data |> Array.toSeq
-                                         |> Seq.map (function x -> f x.Id x.Label)
+let parseApiResponse f x =
+  try
+    x
+    |> ApiResponse.Parse
+    |> function x -> x.Response.Data |> Array.toSeq
+                                     |> Seq.map (function x -> f x.Id x.Label)
+    |> Success
+  with
+  | ex -> ex |> ParseWebResponseException |> Failure
 
-        |> Success
-    with
-      | ex -> ex |> ParseWebResponseException |> Failure
-
+let parsePingResponse x =
+  try
+    x
+    |> ApiPingResponse.Parse
+    |> function x -> match x.Response.Status with
+                     | "OK" -> Success ()
+                     | _ -> sprintf "%s: %s" x.Response.Status x.Response.Message
+                            |> WebCallFailure
+                            |> Failure
+  with
+  | ex -> ex |> ParseWebResponseException |> Failure
+ 
 let webcall f =
   getSyncResponse
-  >=> parseResponse f
+  >=> parseApiResponse f
+
+let pingCall =
+  getSyncResponse
+  >=> parsePingResponse
+
+let pingApi =
+  pingUri
+  |> pingCall 
 
 let getAccessors =
   accessorsUri
