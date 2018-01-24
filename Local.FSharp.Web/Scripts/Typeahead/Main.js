@@ -48,21 +48,23 @@ $('#boxes-a-towns').typeahead({
 });
 
 function IsNotAlreadyAdded(group, id) {
-    var g = $(document.getElementById(id));
-    if (g.length == 0)
+    var g = document.getElementById(group);
+    if (g.children.length > 0)
     {
-        return true;
+        for (var child in g.children) {
+            if (g.children[child].id === id) {
+                return false;
+            }
+        }
     }
-    else
-    {
-        return false;
-    }
+    return true;
 }
 
-$('#boxes-a-towns').on('typeahead:selected', function (evt, item) {
-    $(this).blur().val('');
+$(".fromTypeaheadApi").on("typeahead:selected", function (evt, item) {
+    $(this).blur().val("");
 
-    if (IsNotAlreadyAdded("boxes-collection", item.id) === true) {
+    var collection = $("#" + this.dataset.boxesCollection);
+    if (IsNotAlreadyAdded(this.dataset.boxesCollection, item.id) === true) {
         $.ajax(
         {
             url: "partial/bluebox",
@@ -72,7 +74,7 @@ $('#boxes-a-towns').on('typeahead:selected', function (evt, item) {
                 label: item.label
             },
             success: function (data) {
-                $("#boxes-collection").append(data);
+                collection.append(data);
             }
         });
     }

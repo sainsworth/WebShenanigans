@@ -14,7 +14,7 @@
     </div>
     <div class="col-md-1">
         <br />
-        <a class="btn btn-default" href="Typeahead/Status">API Status</a>
+        <a class="btn btn-default" href="/Typeahead/Status">API Status</a>
     </div>
 </div>
 <hr />
@@ -43,7 +43,7 @@
         <label for="boxes-a-towns">Towns starting with A</label>
     </div>
     <div class="col-md-2" id="a-towns-group">
-        <input id="boxes-a-towns" title="Towns starting with A" />
+        <input id="boxes-a-towns" class="fromTypeaheadApi" title="Towns starting with A" data-boxes-collection="a-towns-boxes"/>
     </div>
     <div class="col-md-7">
         Will use the API to add items to the display below...
@@ -51,7 +51,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div id="boxes-collection" class="box-container">
+        <div id="a-towns-boxes" class="box-container">
         </div>
     </div>
 </div>
